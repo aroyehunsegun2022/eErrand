@@ -1,0 +1,9 @@
+TESTCONFIG='jnsjffdj'
+MERCHANT_ID = 'HDGFYE123'
+DEBUG=True
+ADMIN_EMAIL='myadminemail.mail.com'
+FLASK_RUN_PORT=8082
+SECRET_KEY='sjdhbthn'
+
+SQLALCHEMY_DATABASE_URI='mysql+mysqlconnector://segun2@127.0.0.1:8889/eErrand'
+SQLALCHEMY_TRACK_MODIFICATIONS=False

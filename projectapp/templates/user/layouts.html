@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+   <link href="{{url_for('static',filename='/bootstrap-4/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+   <link href="{{url_for('static',filename='/css/mystyle.css')}}" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
+    <div  >
+        <!-----Nav Bar-->
+        <div id="navbarstyle" >
+                <div class="row">
+                    <div class="col-4">
+                        <img src="{{url_for('static', filename='/images/Logo1.jpg')}}" style="height: 35px;"/>
+                    </div>
+                    <div class="col-3">
+                        
+                    </div>
+                    <div class="col-5">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item" style="margin-right: 35px;">
+                              <a class="nav-link active" aria-current="page" href="{{ url_for('signup') }}">HOME</a>
+                            </li>
+                            <li class="nav-item" style="margin-right: 35px;">
+                              <a class="nav-link active" aria-current="page" href="{{ url_for('contactus') }}">Contact Us</a>
+                            </li>
+                            <li class="nav-item" style="margin-right: 35px;">
+                              <a class="nav-link active" aria-current="page" href="{{ url_for('aboutus') }}">About Us</a>
+                            </li>
+                            <li class="nav-item" style="margin-right: 35px;">
+                              <a class="nav-link active" aria-current="page" href="{{ url_for('whatwedo') }}">What We Do</a>
+                            </li>
+                          </ul>
+
+                    </div>
+
+                </div>
+        </div>
+
+{% block content %}
+
+
+
+
+{% endblock %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+         <!----- Footer ------>
+
+        <div class="container-fluid">
+            <div class="row" style="background-color: black; color: white; height: 100px;" >
+                <div class="col-4"> 
+                   
+
+                </div>
+                <div class="col-4"> 
+                    <span> Designed by eIndustries </span>
+ 
+                 </div>
+                 <div class="col-4"> 
+                    
+ 
+                 </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+</body>
+</html>

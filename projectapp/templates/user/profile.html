@@ -1,0 +1,56 @@
+{% extends 'user/layouts.html' %}
+
+{% block content%}
+
+<div style="margin-top: 50px; margin-left: 150px; text-align: center;" >
+
+     <form action="{{ url_for('profile') }}" method='post'>
+        
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"> 
+        <div class="row">
+            <divc class="col-6">
+                <label for="">First Name</label>
+                <input type="text" name="pfname">
+                <label for="">Address</label>
+                <input type="text" name="paddress" >
+                <label for="">Phone</label>
+                <input type="text" name="pphone" >
+           
+
+            
+                <label for=""> Last Name</label>
+                <input type="text" name="plastname">
+                <label for="">State</label>
+                <input type="text" name="pstate">
+                <label for="">Email</label>
+                <input type="text" name="pemail">
+
+                <button type="submit" name="psubmit">Submit</button>
+                <button><a href="{{ url_for('dashboard') }}" class="card-link" style="color: white;">Cancle</a> </button>
+           
+        </div>
+
+
+    </form>
+
+</div>
+
+<script src="{{url_for('static', filename='/bootstrap-4/js/jquery.min.js')}}"></script>       
+<script src="{{url_for('static', filename='/bootstrap-4/js/bootstrap.js')}}"></script>               
+<script src="OwlCarousel2-2.3.4/dist/owl.carousel.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="main.js"></script>
+
+<script type="text/javascript">$(document).ready(function(){
+
+     
+
+
+
+})
+  
+</script>
+
+
+    
+{% endblock %}

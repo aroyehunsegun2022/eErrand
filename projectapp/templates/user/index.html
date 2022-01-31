@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eErrand Home</title>
+   <link href="{{url_for('static',filename='/bootstrap-4/css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+   <link href="{{url_for('static',filename='/css/mystyle.css')}}" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
+    <div  >
+        <!-----Nav Bar-->
+        <div id="navbarstyle" >
+                <div class="row">
+                    <div class="col-4">
+                        <img src="{{url_for('static', filename='/images/Logo1.jpg')}}" style="height: 35px;"/>
+                    </div>
+                    <div class="col-3">
+                        
+                    </div>
+                    <div class="col-5">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item" style="margin-right: 35px;">
+                              <a class="nav-link active" aria-current="page" href="#">HOME</a>
+                            </li>
+                            <li class="nav-item" style="margin-right: 35px;">
+                              <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+                            </li>
+                            <li class="nav-item" style="margin-right: 35px;">
+                              <a class="nav-link active" aria-current="page" href="#">About Us</a>
+                            </li>
+                            <li class="nav-item" style="margin-right: 35px;">
+                              <a class="nav-link active" aria-current="page" href="#">What We Do</a>
+                            </li>
+                          </ul>
+
+                    </div>
+
+                </div>
+        </div>
+
+            <!------baner top------->
+        <div>
+            <div id="topbanner" class="container-fluid" style="background-image: url({{url_for('static', filename='/images/maps.jpeg')}})" >  
+
+                <div class="row">
+                    <div class="col-4" style="margin-top: 250px;">
+                        <h1>eErrand</h1>
+                             <span><i>running errands digitally so you wouldn't have to!</i></span> <br>
+                        <input type="radio" name="user" id="newuser"> New User? Register Here <br>
+                        <input type="radio" name="user" id="olduser"> Existing User Log In
+                    </div>
+                    <div class="col-4" >
+                        <div style="display: none;"  id="logform" >
+                            {% from "user/_formhelpers.html" import render_field %}
+                            <form action="{{ url_for('login') }}" method='post'>
+                                {{form.hidden_tag()}}
+                                <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"> -->       
+                            <dl>
+                                {{ render_field(form.emails) }}
+                                {{ render_field(form.passwords) }}
+                                 
+                            </dl>
+                            <p><input type=submit value=Login >
+                            </form>
+                            <!-- <form action="" >
+                                <div class="form-group" style="margin-top: 170px;">
+                                    <label for="" >Email</label>
+                                    <input type="text" class="form-control" id="user_e" >
+                                    <label for="">Password</label>
+                                        <input type="password" class="form-control" id="user_p">
+                                    <button type="button" class="btn btn-success" id="userlogon">Log In</button>
+                                </div>        
+                            </form> -->
+                        </div>
+
+                        <div style="display: none;" id="regform">
+                            <!-- <form style="margin-top: 170px;" method="post" action="{{ url_for('signup')}}"> 
+                                <div class="form-group">
+                                        <label for="" >Full Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter your Full name "  id="fulln" name="fullname"> 
+                                    <label for="" > Email Address</label>
+                                    <input type="text" class="form-control" placeholder=" Email address"  id="emaila" name="emails">
+                                    <label for="">Password</label>
+                                        <input type="password" class="form-control" placeholder="Password" id="passw" name="passwords">
+                                    <button type="button" class="btn btn-success" id="registerbutton">Register Now</button>
+                                </div>
+                              </form> -->
+                                {% from "user/_formhelpers.html" import render_field %}
+                                <form action="{{ url_for('signup') }}" method='post'>
+                                    {{form.hidden_tag()}}
+                                    <!-- <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"> -->       
+                                <dl>
+                                    {{ render_field(form.fullname) }}
+                                    {{ render_field(form.emails) }}
+                                    {{ render_field(form.passwords) }}
+                                     
+                                </dl>
+                                <p><input type=submit value=Register >
+                                </form>
+                        </div>
+
+
+
+                    </div>
+                    <div class="col-4">
+                        <div>
+                            <!-- <div>
+                                <img style="height: 700px; width: 625px;" src="{{url_for('static', filename='/images/logoheaderused.jpg')}}"/>
+                            </div> -->
+                
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!------black banner open------->
+
+        <div>
+            <div>
+                <img src="{{url_for('static', filename='/images/curved_banner-2.jpg')}}"/>
+            </div>
+
+        </div>
+
+        <!------App features------->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <p>
+                        <img src="{{url_for('static', filename='/images/easytouseicon-1.png')}}" style="height: 70px;"/> <span style="color: red; font-size: large;"><b>Easy To Use</b> </span>
+                        
+                    </p>
+
+                </div>
+
+                <div class="col-4">
+                    <p>
+                        <img src="{{url_for('static', filename='/images/priceeicon-2.png')}}" style="height: 70px;"/> <span style="color: red; font-size: large;"><b>Affordable Pricing</b> </span>
+                    </p>
+
+
+                </div>
+
+                <div class="col-4">
+                    <p>
+                        <img src="{{url_for('static', filename='/images/timelydeliveryicon-3.png')}}" style="height: 70px;"/> <span style="color: red; font-size: large;"><b>Timely Delivery</b> </span>
+                    </p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+         <!------black banner closed------->
+
+         <div>
+            <div>
+                <img src="{{url_for('static', filename='/images/curved_banner-3.jpg')}}"/>
+            </div>
+
+        </div>
+
+
+
+        <!------App categories------->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <img src="{{url_for('static', filename='/images/SendErrandPage.png')}}" style="height: 800px; margin-top: 80px;"/>
+
+                </div>
+                <div class="col-4">
+                    <div style="margin-top: 320px;">
+                        <h1 style="color: red;">Errand Running</h1>
+                        <span>We offer Instant Errand running services, errand runners are at your <br> 
+                            disposal at the click of a button. Our Errandees will help you sort out <br>
+                            any errand you have for them so you can have time for Other important things. <br> 
+                            Input your locatio-Select Errand Type-Pick Any Errander and SEND!
+                          
+                          </span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    
+                </div>
+
+            </div> 
+
+
+            <div class="row">
+                <div class="col-3">
+                    
+
+                </div>
+                <div class="col-4">
+                    <div style="margin-top: 320px;">
+                        <h1 style="color: red;">Gigs/Artisan</h1>
+                        <span>
+                            As an errandee, You are Exposed to numerous amount of Jobs that<br>
+                            you can select from and do at your own convineence however, at the <br> 
+                            select delivery time of SENDER to earn an extra income for yourself. <br>
+                            Work at you rconvenince, at your preferred location and time.
+                          </span>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <img src="{{url_for('static', filename='/images/RegisterPage.png')}}" style="height: 800px; margin-top: 80px;"/>
+                </div>
+
+            </div> 
+
+            <div class="row">
+                <div class="col-5">
+                    <img src="{{url_for('static', filename='/images/Errands.png')}}" style="height: 800px; margin-top: 80px;"/>
+                </div>
+                <div class="col-4">
+                    <div style="margin-top: 320px;">
+                        <h1 style="color: red;">Errand Type</h1>
+                        <p>Select errand type: Indoor, Outdoor, Artisans ; describe errand, select from the listof users from your location and SEND.</p>
+                    </div>
+                </div>
+                <div class="col-3">
+                    
+                </div>
+
+            </div> 
+
+        </div>
+
+          <!----- downloads design ------>
+        <div>
+            <div id="bottombanner" class="container-fluid" style="background-image: url({{url_for('static', filename='/images/download.jpg')}})">
+
+
+            </div>
+        </div>
+
+         <!----- Footer ------>
+
+        <div class="container-fluid">
+            <div class="row" style="background-color: black; color: white; height: 100px;" >
+                <div class="col-4"> 
+                   
+
+                </div>
+                <div class="col-4"> 
+                    <span> Designed by eIndustries </span>
+ 
+                 </div>
+                 <div class="col-4"> 
+                    
+ 
+                 </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <script src="{{url_for('static', filename='/bootstrap-4/js/jquery.min.js')}}"></script>       
+	<script src="{{url_for('static', filename='/bootstrap-4/js/bootstrap.js')}}"></script>               
+	<script src="OwlCarousel2-2.3.4/dist/owl.carousel.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="main.js"></script>
+
+    <script type="text/javascript">$(document).ready(function(){
+        $('#newuser').click(function(){
+          $('#regform').show();
+          $('#regform').addClass('animate__animated animate__backInDown' );
+          $('#logform').hide();
+          
+        })
+    
+        $('#olduser').click(function(){
+          $('#logform').show()
+          $('#logform').addClass('animate__animated animate__rotateInUpLeft');
+          $('#regform').hide();
+        })
+    
+       // $('.row').children().css('border', '2px solid red') // DOM jquery picking or refrence to parent or children or siblings
+
+       $('#userlogon').click(function(){
+        var user = $('#user_e').val()
+        var pwd = $('#user_p').val()
+        if (user == '' || pwd == ''){
+          alert('please input something')
+        }
+      })
+
+
+      $('#registerbutton').click(function(){
+        var user = $('#fulln').val()
+        var pwd = $('#passw').val()
+        var emai = $('#emaila').val()
+        if (user == '' || pwd == '' || emai ==''){
+            alert('please complete the form')
+        } else
+            alert('Thank for registering, please log in')
+      })
+
+
+
+
+
+
+    
+      })
+
+
+
+
+
+
+
+        
+    </script>
+</body>
+</html>

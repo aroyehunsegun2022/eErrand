@@ -1,0 +1,196 @@
+{% extends 'user/layouts.html' %}
+
+{% block content%}
+
+<!-----Card-->
+<div class="container-fluid" style="margin-top: 30px;">
+        <div class="row">
+                    <div class="col-3" style="margin-left: 20px;">
+                        <p>Welcome to your dashboard {{err.signup_fullname }}.</p>
+                            <div class="card" style="width: 18rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h5 class="card-title">My Profile</h5>
+                                <p class="card-text">I am down to earth and fun to be with</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><button class="btn btn-primary btn-block" id="errandbtn">Errand</button></li>
+                                <li class="list-group-item"><button class="btn btn-primary btn-block" id="walletbtn">Wallet</button></li>
+                                <li class="list-group-item"><button class="btn btn-primary btn-block" id="historybtn">History</button></li>
+                                <li class="list-group-item"><button class="btn btn-primary btn-block" id="ticketbtn">Ticket</button></li>
+                                </ul>
+                                
+                                <div class="card-footer">
+                                    <button class="btn btn-danger"> <a href="{{ url_for('profile') }}" class="card-link" style="color: white;"> Update Profile </a> </button>
+                                     <button class="btn btn-danger"> <a href="{{ url_for('signup') }}" class="card-link" style="color: white;"> log Out </a> </button>
+                                    
+                                </div>
+                            </div>
+
+                    </div>
+
+                <div class="col-6" id="dashboard" >
+                        <div>
+                                <div id="wallets" style="display: none;">
+                                    <!----eerrand-->
+                                    <div  style="border: 1px solid black ; width: 400px; height: 180px;   margin-top: 100px; color: black; text-align: center;border-bottom-right-radius: 10%; border-bottom-left-radius: 10%;">
+                                            <p style="font-size: xx-large;"> <b> eWallet</b></p>
+                                            <p>Available Balance</p>
+                                            <p style="font-size: 50px;"> <b> #15,500.00 </b></p>
+
+                                    </div>
+                                    <div style=" width: 400px; height: 400px ; background-color: white;" >
+                                            <div>
+                                                <div>
+                                                    <a href=""><img style="height: 100px;  margin-left: 10px; margin-top: 30px;" src="{{url_for('static', filename='/images/top-up-2.png')}}"/></a>
+                                                    <span>Top Up</span>
+                                                <a href=""> <img style="height: 100px;   margin-left: 30px; margin-top: 30px;" src="{{url_for('static', filename='/images/top-up-2.png')}}"/></a>
+                                                    <span>Send</span>
+                                                    
+                                                </div>
+                                                <div>
+                                                <a href=""> <img style="height: 100px; margin-top: 10px; margin-left: 10px;margin-top: 40px;" src="{{url_for('static', filename='/images/top-up-2.png')}}"/></a>
+                                                    <span>Send bank </span>
+                                                    <a href=""></a><img style="height: 100px; margin-top: 10px; margin-left: 30px;margin-top: 40px;" src="{{url_for('static', filename='/images/top-up-2.png')}}"/>
+                                                    <span> add acct</span>
+                                                    
+                                                </div>
+
+                                            
+
+
+                                            </div>
+
+                                
+
+                                        </div>
+
+
+                                </div>
+
+                                        <!-----Errand  all is hidden until errand is clicked -->
+                                <div id="errands"  style="margin-top: 100px; display: none;"> 
+                                            <!----errand type-->
+                                            <div>
+                                                <label for="">Errand Type</label>
+                                                    <select name="" id="selection" >
+                                                        <option  value="">Please select</option>
+                                                        <option  value="">Outdoor Errand</option>
+                                                        <option value="">Indoor Errand</option>
+                                                        <option value="">Artisan Errand</option>
+                                                    </select>
+                                            </div>
+
+                                              <!---------load map with those registered on each errand type for requesters hidden until errand type is clicked-->
+                                        <div style="border: 2px solid black; height: 550px; margin-top: 50px; width: 700px;  "  id="mapss">
+                                            
+                                            <p>map</p>
+ 
+                                        </div>
+
+                                </div>
+                                   
+                                <!--History -->
+                                <div id="histories" style="display: none;">
+                                    <div>
+                                        <table class="table table-striped">
+                                            <tr><th>s/n</th><th>Errandee name</th><th>amount paid</th><th>task status</th></tr>
+                                            <tr><td>1</td><td>segun aroyehun</td><td>#10,500</td><td>Completed</td></tr>
+                                            <tr><td>1</td><td>segun aroyehun</td><td>#10,500</td><td>Completed</td></tr>
+                                            <tr><td>1</td><td>segun aroyehun</td><td>#10,500</td><td>Completed</td></tr>
+                                            <tr><td>1</td><td>segun aroyehun</td><td>#10,500</td><td>Completed</td></tr>
+                                            <tr><td>1</td><td>segun aroyehun</td><td>#10,500</td><td>Completed</td></tr>
+                                            <tr><td>1</td><td>segun aroyehun</td><td>#10,500</td><td>Completed</td></tr>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+
+                                <!--Tickets -->
+                                <div id="tickets" style="display: none;">
+
+                                </div>
+
+                                <!------user 
+                                <div style="display: none;" >
+                                    <form action="" id="updateprofile">
+                                        <label for="">First name</label>
+                                        <input type="text">
+                                        <label for="">Last name</label>
+                                        <input type="text"> <br>
+                                      
+                                    </form>
+
+                                </div>
+                                Profile -->
+                    
+
+                            </div>
+
+                </div>
+                
+            </div>
+
+
+                <!----last col for logout-->
+                <div class="col-3" >
+                    
+                </div>
+    </div>
+<script src="{{url_for('static', filename='/bootstrap-4/js/jquery.min.js')}}"></script>       
+<script src="{{url_for('static', filename='/bootstrap-4/js/bootstrap.js')}}"></script>               
+<script src="OwlCarousel2-2.3.4/dist/owl.carousel.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="main.js"></script>
+
+<script type="text/javascript">$(document).ready(function(){
+
+    $('#errandbtn').click(function(){
+      $('#errands').show();
+      $('#wallets').hide();
+      $('#histories').hide();
+      $('#tickets').hide();
+      
+    })
+
+    $('#walletbtn').click(function(){
+      $('#wallets').show();
+      $('#errands').hide();
+      $('#histories').hide();
+      $('#tickets').hide();
+      
+    })
+
+    $('#historybtn').click(function(){
+      $('#histories').show();
+      $('#errands').hide();
+      $('#wallets').hide();
+      $('#tickets').hide();
+      
+    })
+
+    $('#ticketbtn').click(function(){
+      $('#tickets').show();
+      $('#errands').hide();
+      $('#wallets').hide();
+      $('#histories').hide();
+      
+    })
+
+    $('#selection').onSelect(function(){
+      $('#mapss').show();
+      
+      
+    })
+
+})
+  
+</script>
+
+
+
+{% endblock %}
+
+
+ 
